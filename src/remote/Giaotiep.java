@@ -3,7 +3,7 @@ package remote;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface Giaotiep extends Remote {
+public interface Giaotiep extends Remote{
 	public boolean send(String id2, String cap, String mess) throws RemoteException;
 
 	public void logout() throws RemoteException;

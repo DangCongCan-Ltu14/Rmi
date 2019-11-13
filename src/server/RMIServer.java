@@ -18,18 +18,11 @@ public class RMIServer {
 		try {
 
 			System.setProperty("java.rmi.server.hostname", host);
-			// setSettings();
 			SRmi call;
 			if (args.length > 1)
 				call = new SRmi(Connect.getConn(args[1]));
 			else
 				call = new SRmi(Connect.getConn());
-
-			// LocateRegistry.createRegistry(8888, new SslRMIClientSocketFactory(),
-			// new SslRMIServerSocketFactory(null, null, true));
-			// Registry registry = LocateRegistry.getRegistry(host, 8888, new
-			// SslRMIClientSocketFactory());
-
 			LocateRegistry.createRegistry(8888);
 			Registry registry = LocateRegistry.getRegistry(host, 8888);
 			UnicastRemoteObject.exportObject(call, 0);
